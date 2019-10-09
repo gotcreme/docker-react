@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vovadykun/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run vovadykun/docker-react npm run test -- --coverage
