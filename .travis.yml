@@ -6,7 +6,7 @@ before_install:
   - docker build -t vovadykun/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run vovadykun/docker-react npm run test -- --coverage
+  - docker run -e CI=true vovadykun/docker-react npm run test
 
 deploy:
   provider: elasticbeanstalk
